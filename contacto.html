@@ -9,7 +9,7 @@
         <div>
         <header>
             <div class="back"></div>
-            <a><img id="logo" src="images/logo.png"></a>
+            <a href="master_1.html"><img id="logo" src="images/logo.png"></a>
               <nav>
                 <a href="master_1.html">Nosotros</a>
                 <a href="Prof_sesion.html">Maestro</a>
@@ -22,20 +22,20 @@
                 <h2>Preguntas o dudas</h2>
                 <form name="consulta" method="post" action="prueba.php">
                     <div id="texto">
-                        <p><b><label for="nombre">Nombre: </label></b><input type="text" id="Nombre" name="Nombre" placeholder="Nombre completo"></p>
+                        <p><b><label for="nombre">Nombre: </label></b><input type="text" id="nombre" name="nombre" placeholder="Nombre completo*" required pattern="[A-Za-z]+" title="Solo utilizar letras mayúsculas o minusculas sin espacio"></p>
                     </div>
                     <div id="texto">
-                        <p><b><label for="email">Correo: </label></b><input type="email" id="correo" name="correo" placeholder="Ingrese su correo"></p>
+                        <p><b><label for="email">Correo: </label></b><input type="email" id="email" name="email" placeholder="Ingrese su correo*" required></p>
                     </div>
                     <div id="texto">
-                        <p><b><label for="asunto">Asunto: </label></b><input type="text" id="asunto" name="asunto" placeholder="Asunto o motivo"></p>
+                        <p><b><label for="asunto">Asunto: </label></b><input type="text" id="asunto" name="asunto" placeholder="Asunto o motivo*" required pattern="[A-Za-z0-9]+" title="Solo utilizar letras mayúsculas o minusculas"></p>
                     </div>
                     <div id="texto">
                         <p><b><label for="descripcion">Descripción: </label></b>
                         <br><br>
-                            <textarea id="descripcion" name="descripcion" placeholder="Ingrese la descripci&oacute;n del asunto del correo" cols="40" rows="6" maxlength="500"></textarea></p>
+                            <textarea id="descripcion" name="descripcion" placeholder="Ingrese la descripci&oacute;n del asunto del correo*" cols="40" rows="6" maxlength="500" required ></textarea></p>
                     </div>
-                    <button type="submit" name="Enviar" id="boton"><b>Enviar</b></button>
+                    <button type="submit" name="enviar" id="boton"><b>Enviar</b></button>
                 </form>
             </div>
             <div class="column">

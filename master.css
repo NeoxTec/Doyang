@@ -333,8 +333,21 @@ h3{padding: 10px}
     margin-right: 2.5%; 
     margin-top: 21.5%
 }
+
+#mensaje{
+     background-color: #ba1c1c;
+    width: 30%;
+    min-height: 95%;
+    float: left;
+    display: block;
+    border: solid black .5em;
+    position:relative;
+    margin-left: 35%;
+    border-style: double;
+    color: whitesmoke;
+}
 .column{
-    background-color: white;
+    background-color: #ba1c1c;
     width: 30%;
     min-height: 95%;
     float: left;
@@ -342,7 +355,9 @@ h3{padding: 10px}
     border: solid black .5em;
     position:relative;
     margin-left: 2%;
-    border-style: double;}
+    border-style: double;
+    color: whitesmoke;
+}
 #texto{
     width: 90%; 
     margin-left: 5%; 
