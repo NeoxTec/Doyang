@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    $conect = new PDO("mysql:host=localhost; port=3307; dbname=pumastkd","root","maria");
+    $conect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);       
+    $SQL = "SELECT * FROM alumno where id='".$_SESSION["correo"]."';";
+    printf($SQL);
+    $prep = $conect->prepare($SQL);
+    $res = $prep->fetch();
+    $nom = res[1];
+?>
 <html>
     <head>
     <meta charset="utf-8">
@@ -32,7 +42,7 @@
                         <h2>Nombre:</h2>
                     </div>
                     <div class="col">
-                        <input class="form-control" type="text" id="nombre" name="nombre" maxlength="40" readonly>
+                        <input class="form-control" type="text" id="nombre" name="nombre" value="<?php echo $res[1];?>" maxlength="40" readonly>" 
                     </div>
                     <div class="col">
                         <h2>Apellidos: </h2>
@@ -80,10 +90,10 @@
             </div>
             </div>
             <div class="botones">
-                <center>
-                    <input type="button" name="editar" value="Editar" class="btn btn-light btn-lg">
-                    <input type="button" name="volver" value="Cerrar sesión" class="btn btn-dark btn-lg">
-                </center>
+                <center><form action="prueba2.php" method="post">
+                    <input type="submit" name="editar" id="editar"value="Editar" class="btn btn-light btn-lg">
+                    <input type="submit" name="volver" id="volver" value="Cerrar sesión" class="btn btn-dark btn-lg">
+                </form></center>
             </div>
         </main>
         </div>
