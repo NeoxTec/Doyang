@@ -3,10 +3,11 @@
     $conect = new PDO("mysql:host=localhost; port=3307; dbname=pumastkd","root","maria");
     $conect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);       
     $SQL = "SELECT * FROM alumno where id='".$_SESSION["correo"]."';";
-    printf($SQL);
     $prep = $conect->prepare($SQL);
-    $res = $prep->fetch();
-    $nom = res[1];
+    $prep->execute();
+    $prep->setFetchMode(PDO::FETCH_ASSOC);
+    $linea = $prep->fetch();
+    $linea['nombre']
 ?>
 <html>
     <head>
@@ -42,13 +43,13 @@
                         <h2>Nombre:</h2>
                     </div>
                     <div class="col">
-                        <input class="form-control" type="text" id="nombre" name="nombre" value="<?php echo $res[1];?>" maxlength="40" readonly>" 
+                        <input class="form-control" type="text" id="nombre" name="nombre" value="<?php echo $linea['nombre'];?>" maxlength="40" readonly>" 
                     </div>
                     <div class="col">
                         <h2>Apellidos: </h2>
                     </div>
                     <div class="col">
-                        <input class="form-control" type="text" id="nombre" name="nombre" maxlength="40" readonly>
+                        <input class="form-control" type="text" id="nombre" name="nombre" maxlength="40"  value="<?php echo $linea['apellidos'];?>"readonly>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -56,13 +57,13 @@
                         <h2>Grado:</h2>
                     </div>
                     <div class="col">
-                        <input class="form-control" type="text" id="grado" name="grado" maxlength="40" readonly>
+                        <input class="form-control" type="text" id="grado" name="grado" maxlength="40" value="<?php echo $linea['grado'];?>" readonly>
                     </div>
                     <div class="col">
                         <h2>Altura: </h2>
                     </div>
                     <div class="col">
-                        <input class="form-control" type="text" id="altura" name="altura" maxlength="40" readonly>
+                        <input class="form-control" type="text" id="altura" name="altura" maxlength="40" value="<?php echo $linea['altura'];?>" readonly>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -70,13 +71,13 @@
                         <h2>Peso (kg):</h2>
                     </div>
                     <div class="col">
-                        <input class="form-control" type="text" id="peso" name="peso" maxlength="40" readonly>
+                        <input class="form-control" type="text" id="peso" name="peso" maxlength="40" value="<?php echo $linea['peso'];?>" readonly>
                     </div>
                     <div class="col">
                         <h2>Edad: </h2>
                     </div>
                     <div class="col">
-                        <input class="form-control" type="text" id="edad" name="edad" maxlength="40" readonly>
+                        <input class="form-control" type="text" id="edad" name="edad" maxlength="40" value="<?php echo $linea['edad'];?>" readonly>
                     </div>
                     </div>
                 <div class="form-group row">
@@ -84,7 +85,7 @@
                         <h2>Fecha de nacimiento(d/m/a):</h2>
                     </div>
                     <div class="col">
-                        <input class="form-control" input type=date id="nacimiento" name="nacimiento"  readonly>
+                        <input class="form-control" input type=date id="nacimiento" name="nacimiento"  value="<?php echo $linea['fecha_nac'];?>" readonly>
                     </div>
             </div>
             </div>

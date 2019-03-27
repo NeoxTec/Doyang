@@ -21,7 +21,7 @@
                 $res=$prep2->fetch();
                 session_start();
                 $_SESSION["correo"] = $res[0];
-                header("Location:alumno.html");
+                header("Location:alumno.php");
             }
             else{
                 header("Location:Alumno_session.html");
